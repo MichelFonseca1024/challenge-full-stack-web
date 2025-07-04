@@ -95,10 +95,6 @@
                                                 "user": {
                                                     "type": "object",
                                                     "properties": {
-                                                        "id": {
-                                                            "type": "integer",
-                                                            "example": 1
-                                                        },
                                                         "name": {
                                                             "type": "string",
                                                             "example": "Administrador"
@@ -106,14 +102,6 @@
                                                         "email": {
                                                             "type": "string",
                                                             "example": "admin@teste.com"
-                                                        },
-                                                        "academicRecord": {
-                                                            "type": "string",
-                                                            "example": "2024001"
-                                                        },
-                                                        "cpf": {
-                                                            "type": "string",
-                                                            "example": "12345678901"
                                                         }
                                                     }
                                                 },
@@ -221,10 +209,6 @@
                                                 "user": {
                                                     "type": "object",
                                                     "properties": {
-                                                        "id": {
-                                                            "type": "integer",
-                                                            "example": 1
-                                                        },
                                                         "name": {
                                                             "type": "string",
                                                             "example": "Administrador"
@@ -232,14 +216,6 @@
                                                         "email": {
                                                             "type": "string",
                                                             "example": "admin@teste.com"
-                                                        },
-                                                        "academic_record": {
-                                                            "type": "string",
-                                                            "example": "2024001"
-                                                        },
-                                                        "cpf": {
-                                                            "type": "string",
-                                                            "example": "12345678901"
                                                         }
                                                     }
                                                 },
