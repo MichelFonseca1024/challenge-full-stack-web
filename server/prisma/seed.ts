@@ -18,8 +18,6 @@ async function main() {
       password: hashedPassword,
     },
   });
-
-  console.log("Usuário criado:", user);
 }
 
 main()

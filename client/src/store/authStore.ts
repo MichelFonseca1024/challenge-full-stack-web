@@ -28,7 +28,6 @@ export const useAuthStore = defineStore('auth', {
         this.token = token
         this.user = JSON.parse(user)
         this.isAuthenticated = await this.refreshToken()
-        console.log("initAuth", this.isAuthenticated)
       }
     },
 
