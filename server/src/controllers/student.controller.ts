@@ -40,7 +40,7 @@ router.post(
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
 
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -61,7 +61,7 @@ router.get(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -87,7 +87,7 @@ router.get(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -102,7 +102,7 @@ router.get(
 
       if (!student) {
         FactoryResponse.buildJson(res, 200, {
-          message: { message: "Nenhum estudante encontrado" },
+          message: "Nenhum estudante encontrado",
         });
         return;
       }
@@ -114,7 +114,7 @@ router.get(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -140,7 +140,7 @@ router.put(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -160,7 +160,7 @@ router.delete(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );

@@ -34,7 +34,7 @@ export default class StudentValidation {
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 
@@ -57,7 +57,7 @@ export default class StudentValidation {
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 
@@ -82,7 +82,7 @@ export default class StudentValidation {
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 
@@ -123,7 +123,7 @@ export default class StudentValidation {
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 
@@ -170,7 +170,7 @@ export default class StudentValidation {
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 }

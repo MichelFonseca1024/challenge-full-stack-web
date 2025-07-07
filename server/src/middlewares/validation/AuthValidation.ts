@@ -17,11 +17,11 @@ export default class AuthValidation {
           .max(100, "Password deve ter no máximo 100 caracteres"),
       });
 
-      await loginSchema.validate(req.body, { abortEarly: false, strict: true });
+      await loginSchema.validate(req.body, { strict: true });
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 
@@ -46,13 +46,12 @@ export default class AuthValidation {
       });
 
       await refreshTokenSchema.validate(req.body, {
-        abortEarly: false,
         strict: true,
       });
 
       next();
     } catch (err: any) {
-      FactoryResponse.buildJson(res, 400, { messages: err.errors });
+      FactoryResponse.buildJson(res, 400, { message: err.message });
     }
   }
 }

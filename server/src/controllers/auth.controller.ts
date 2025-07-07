@@ -25,7 +25,7 @@ router.post(
     } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { error: { message } });
+      FactoryResponse.buildJson(res, 400, { message });
     }
   },
 );
@@ -54,7 +54,7 @@ router.post(
         error instanceof Error ? error.message : "Erro desconhecido";
 
       FactoryResponse.buildJson(res, 401, {
-        error: { message },
+        message,
       });
     }
   },
