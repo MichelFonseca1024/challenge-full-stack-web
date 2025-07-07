@@ -6,6 +6,7 @@ import cors from "cors";
 import { configureEnvironment } from "./config/environment";
 import configureSwagger from "./config/swagger";
 import routes from "./routes/index";
+import Auth from "./middlewares/Auth";
 
 configureEnvironment();
 
@@ -24,6 +25,23 @@ app.get("/", (_request: Request, response: Response) =>
 );
 
 configureSwagger(API_BASE, app);
+
+app.all(`${API_BASE}*`, (req, res, next) => {
+  const publicRoutes = [
+    "/api",
+    "/api/api-docs",
+    "/api/auth/login",
+    "/api/auth/refresh-token",
+  ];
+
+  for (const route of publicRoutes) {
+    if (req.path.replace(/\/$/, "") === route) {
+      return next();
+    }
+  }
+  Auth(req, res, next);
+});
+
 app.use(API_BASE, routes);
 
 app.listen(PORT, () => {
