@@ -1,5 +1,8 @@
 {
   "files": [],
+  "compilerOptions": {
+    "types": ["vue-sweetalert2"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"

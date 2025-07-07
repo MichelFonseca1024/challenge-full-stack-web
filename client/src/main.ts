@@ -9,6 +9,12 @@ import '@mdi/font/css/materialdesignicons.css'
 import { createPinia } from 'pinia'
 import { axiosPlugin } from './services/axios'
 
+
+import VueSweetalert2 from 'vue-sweetalert2';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 // @ts-ignore
 import vueTheMask from 'vue-the-mask'
 
@@ -27,9 +33,29 @@ const vuetify = createVuetify({
     directives,
   })
 
+declare global {
+	interface Window {
+		toast: any
+	}
+}
+
+window.toast = Swal.mixin({
+	toast: true,
+	position: 'top-end',
+	showConfirmButton: false,
+	timer: 4000,
+	timerProgressBar: true,
+	didOpen: toast => {
+		toast.addEventListener('mouseenter', Swal.stopTimer)
+		toast.addEventListener('mouseleave', Swal.resumeTimer)
+	}
+})
+
+
 const app = createApp(App)
 const pinia = createPinia()
 
+app.use(VueSweetalert2)
 app.use(router)
 app.use(vuetify)
 app.use(pinia)

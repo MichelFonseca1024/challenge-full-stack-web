@@ -52,6 +52,7 @@ export const useAuthStore = defineStore('auth', {
         return response
         
       } catch ({ data }: any) {
+        console.log(data)
         this.error = data?.error?.message || 'Erro ao fazer login. Verifique suas credenciais.'
         this.isAuthenticated = false
         this.token = null
