@@ -1,2 +1,2 @@
-// Example:
-// export {default as NavBar} from './NavBar.vue'
+export { default as LoginForm } from './LoginForm.vue'
+export { default as LoginHeader } from './LoginHeader.vue'
