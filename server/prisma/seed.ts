@@ -7,14 +7,14 @@ const SALT = 10;
 async function main() {
   const hashedPassword = await bcrypt.hash("123456", SALT);
 
-  const user = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: "admin@teste.com" },
     update: {},
     create: {
-      name: "Administrador",
+      name: "Usuario Administrador",
       email: "admin@teste.com",
       academicRecord: "2024001",
-      cpf: "12345678901",
+      cpf: "123.456.789-01",
       password: hashedPassword,
     },
   });
