@@ -3,12 +3,9 @@ import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 
-import { configureEnvironment } from "./config/environment";
 import configureSwagger from "./config/swagger";
 import routes from "./routes/index";
 import Auth from "./middlewares/Auth";
-
-configureEnvironment();
 
 const API_BASE = process.env.API_BASE || "/api";
 const PORT = process.env.PORT || 3000;
