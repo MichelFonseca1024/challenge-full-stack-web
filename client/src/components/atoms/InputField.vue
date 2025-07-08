@@ -6,6 +6,7 @@
     :color="color"
     :variant="variant"
     :required="required"
+    :readonly="readonly"
     :error-messages="errorMessages"
     :autocomplete="autocomplete"
     :append-inner-icon="appendInnerIcon"
@@ -41,6 +42,10 @@ export default defineComponent({
       default: 'outlined'
     },
     required: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
       type: Boolean,
       default: false
     },

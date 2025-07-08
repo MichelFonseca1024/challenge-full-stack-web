@@ -61,6 +61,7 @@ import { computed, defineComponent, onMounted, ref } from 'vue'
 import { BaseTable } from '@/components/atoms'
 import { useStudentStore } from '@/store/studentStore'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'StudentTable',
@@ -68,6 +69,7 @@ export default defineComponent({
     BaseTable
   },
   setup() {
+    const router = useRouter()
     const studentStore = useStudentStore()
     const { students, loading } = storeToRefs(studentStore)
     const modalDelete = ref(false)
@@ -101,6 +103,10 @@ export default defineComponent({
       studentStore.getStudents()
     }
 
+    const editStudent = (item) => {
+      router.push(`/students/edit/${item.id}`)
+    }
+
     const openModalDelete = (item) => {
       studentToDelete.value = item
       modalDelete.value = true
@@ -127,6 +133,7 @@ export default defineComponent({
       handlePageChange,
       currentPage,
       modalDelete,
+      editStudent,
       openModalDelete,
       confirmDelete
     }

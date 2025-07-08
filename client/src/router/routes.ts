@@ -20,6 +20,16 @@ const routes = [
           path: '/students',
           name: 'Students',
           component: () => import('@/components/organisms/Students.vue'),
+        },
+        {
+          path: '/students/register',
+          name: 'RegisterStudent',
+          component: () => import('@/components/molecules/StudentForm.vue'),
+        },
+        {
+          path: '/students/edit/:id',
+          name: 'EditStudent',
+          component: () => import('@/components/molecules/StudentForm.vue'),
         }
       ],
       meta: { requiresAuth: true }

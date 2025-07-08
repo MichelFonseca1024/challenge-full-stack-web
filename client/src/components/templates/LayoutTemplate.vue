@@ -4,7 +4,6 @@
     <v-main>
       <v-container class="pa-8" fluid>
         <router-view />
-        <!-- rota: /students e subrota: /new e /update -->
       </v-container>
     </v-main>
   </v-app>

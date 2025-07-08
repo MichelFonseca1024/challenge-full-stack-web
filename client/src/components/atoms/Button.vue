@@ -2,6 +2,7 @@
   <v-btn 
     :block="block"
     :color="color" 
+    :variant="variant"
     :class="buttonClass"
     :type="type"
     :loading="loading"
@@ -15,7 +16,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Button',
+  name: 'ButtonComponent',
   props: {
     block: {
       type: Boolean,
@@ -24,6 +25,10 @@ export default defineComponent({
     color: {
       type: String,
       default: 'primary'
+    },
+    variant: {
+      type: String,
+      default: 'flat'
     },
     buttonClass: {
       type: String,
