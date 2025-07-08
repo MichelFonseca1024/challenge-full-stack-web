@@ -6,9 +6,17 @@ const routes = [
       meta: { requiresGuest: true }
     },
     {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: () => import('@/components/templates/DashboardTemplate.vue'), 
+      path: '/',
+      name: 'Layout',
+      component: () => import('@/components/templates/LayoutTemplate.vue'),
+      redirect: '/dashboard',
+      children: [
+        {
+          path: '/dashboard',
+          name: 'Dashboard',
+          component: () => import('@/components/organisms/Dashboard.vue'),
+        }
+      ],
       meta: { requiresAuth: true }
     }
   ]
