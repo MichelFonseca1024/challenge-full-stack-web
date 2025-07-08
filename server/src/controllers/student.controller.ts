@@ -51,38 +51,19 @@ router.get(
   async (req: Request, res: Response) => {
     try {
       const paginationParams = getPaginationParams(req);
-      const result = await studentRepository.findAllPaginated(paginationParams);
+      const query = req.query.q as string;
+
+      let result;
+      if (query) {
+        result = await studentRepository.search(query, paginationParams);
+      } else {
+        result = await studentRepository.findAllPaginated(paginationParams);
+      }
 
       FactoryResponse.buildJson(res, 200, {
         message: "Estudantes listados com sucesso",
         students: result.data,
         pagination: result.pagination,
-      });
-    } catch (error: unknown) {
-      const message =
-        error instanceof Error ? error.message : "Erro desconhecido";
-      FactoryResponse.buildJson(res, 400, { message });
-    }
-  },
-);
-
-router.get(
-  "/search",
-  studentValidation.searchWithPagination,
-  async (req: Request, res: Response) => {
-    try {
-      const searchTerm = req.query.q as string;
-      const paginationParams = getPaginationParams(req);
-      const result = await studentRepository.search(
-        searchTerm,
-        paginationParams,
-      );
-
-      FactoryResponse.buildJson(res, 200, {
-        message: "Busca realizada com sucesso",
-        students: result.data,
-        pagination: result.pagination,
-        searchTerm,
       });
     } catch (error: unknown) {
       const message =
